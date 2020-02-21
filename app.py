@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,6 +8,21 @@ def hello_world():
 @app.route('/hithere')
 def hi_there_everyone():
     return "I just hit /hithere!"
+
+@app.route('/add_two_nums', methods=["POST"])
+def add_two_nums():
+    dataDict = request.get_json()
+    if( "x" or "y" not in dataDict):
+        return "ERROR", 305
+    x = dataDict["x"]
+    y = dataDict["y"]
+    z = x + y
+
+    retJson = {
+        "z": z
+    }
+
+    return jsonify(retJson), 200
 
 @app.route('/bye')
 def bye():
