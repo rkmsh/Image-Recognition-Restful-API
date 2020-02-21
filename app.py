@@ -11,9 +11,20 @@ def hi_there_everyone():
 
 @app.route('/bye')
 def bye():
+    age = 4 * 5
     retJson = {
-        'field1': 'abc',
-        'field2': 'def'
+        'Name': 'Bug Hunter',
+        'Age': age,
+        "Phones": [
+            {
+                "PhoneName": "Iphone X",
+                "PhoneNumber": "888888888"
+            },
+            {
+                "PhoneNumber": "Nokia",
+                "PhoneNumber": "8888888888"
+            }
+        ]
     }
 
     return jsonify(retJson)
