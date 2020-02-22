@@ -23,7 +23,7 @@ class Add(Resource):
         postData = request.get_json()
 
         status_code = checkPostData(postData, "add")
-        if (status_code is not 200):
+        if (status_code != 200):
             retJson = {
                 "Message": "An error happened",
                 "Status Code": status_code
@@ -46,7 +46,7 @@ class Subtract(Resource):
         postData = request.get_json()
 
         status_code = checkPostData(postData, "subtract")
-        if (status_code is not 200):
+        if (status_code != 200):
             retJson = {
                 "Message": "An error happened",
                 "Status Code": status_code
@@ -69,7 +69,7 @@ class Multiply(Resource):
         postData = request.get_json()
 
         status_code = checkPostData(postData, "multiply")
-        if (status_code is not 200):
+        if (status_code != 200):
             retJson = {
                 "Message": "An error happened",
                 "Status Code": status_code
@@ -92,7 +92,7 @@ class Divide(Resource):
         postData = request.get_json()
 
         status_code = checkPostData(postData, "division")
-        if (status_code is not 200):
+        if (status_code != 200):
             retJson = {
                 "Message": "An error happened",
                 "Status Code": status_code
@@ -121,4 +121,4 @@ api.add_resource(Multiply, "/multiply")
 api.add_resource(Divide, "/division")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
